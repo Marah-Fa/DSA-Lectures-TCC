@@ -8,14 +8,27 @@ namespace Binary_Search_Homework // don't edit this line!!!
 {
     public class BinarySearchHomework // don't edit this line!!!
     {
-        public static int TernarySearch(int[] arr, int key, int start, int end) // don't edit this line!!!
+       public static int TernarySearch(int[] arr, int key, int start, int end) // don't edit this line!!!
                                                                                 // يمكنك تجاهل برمترات البداية والنهاية إذا لا تريد استخدام الطريقة العودية 
                                                                                 // لكن لاتقوم بحذفهم أو التعديل عليهم هنا تحت اي ظرف!!!
                                                                                 // من الممكن تمرير قيمة 0 لتجاهلهم
-        {
+
+       
             //TODO: write code for the ternary search algorithm and return the index of the element
-            return -1;
-        }
+     
+        {
+             int middle_idx=(start+end)/3;
+             if(arr[middle_idx]==key)
+                 return middle_idx;
+             if(start>end)
+                 return -1;
+            if(arr[middle_idx]>key)
+                 return TernarySearch(arr,key,start,middle_idx-1);
+                 return TernarySearch(arr,key,middle_idx+1,end);
+
+         }
+         
+        
 
         public static int BinarySearchForCalculatingRepeated
             (int[] arr, int key, bool is_first, int start, int end) // don't edit this line!!!
@@ -31,7 +44,18 @@ namespace Binary_Search_Homework // don't edit this line!!!
         {
             //TODO: write code to calculate the repeat count of a spacific element
             // make sure to use the previous method in this method
-            return -1;
+
+            int counter = 0;
+            for (int i = 0; i < arr.Length; )
+            {
+                if (arr[i] == key)
+                {
+                    // Console.WriteLine(i);
+                    counter++;
+                }
+                i++;
+            }
+            return counter;
         }
     }
 }
